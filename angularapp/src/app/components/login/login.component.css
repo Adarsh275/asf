@@ -1,0 +1,151 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background-image: url("../../../assets/Bookswall_generated.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.main-container {
+  display: flex;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+.left-container {
+  background-color: #003366; /* Navy Blue */
+  color: white;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.left-container h2 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.right-container {
+  flex: 1;
+  padding: 40px;
+}
+
+.right-container h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #003366; /* Navy Blue */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-email,
+.user-password {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.error-message {
+  margin-top: 8px;
+  color: #dc3545; /* Red */
+}
+
+.error-text {
+  font-size: 14px;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-button {
+  background-color: #003366; /* Navy Blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #001f4d; /* Darker Navy Blue */
+}
+
+small {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+small a {
+  color: #003366; /* Navy Blue */
+  text-decoration: none;
+}
+
+small a:hover {
+  text-decoration: underline;
+}
+
+/* Add these styles to your existing CSS file */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #f97316; /* Orange color */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

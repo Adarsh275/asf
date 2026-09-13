@@ -1,0 +1,91 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0 auto;
+}
+   
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+   
+table {
+  width: 90%;
+  max-width: 1200px;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+}
+   
+th, td {
+  padding: 15px;
+  border: 1px solid #ccc; /* Add border to table cells */
+  text-align: center; /* Center align table cells horizontally */
+  vertical-align: middle; /* Center align table cells vertically */
+}
+   
+th {
+  background-color: #3653f8;
+  color: white;
+}
+   
+.btn-delete {
+  color: white;
+  background-color: red;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px; /* Set consistent width */
+}
+   
+.btn-delete:hover {
+  background-color: darkred;
+}
+   
+/* Popup overlay styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+   
+  /* Popup content styles */
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+   
+button {
+  font-weight: bold;
+  color: white;
+  border-radius: 2rem;
+  cursor: pointer;
+  width: 95.02px;
+  height: 42.66px;
+  border: none;
+  margin: 5px;
+}
+   
+button.btn-danger {
+  background-color: red;
+}
+   
+button.btn-secondary {
+  background-color: grey;
+}

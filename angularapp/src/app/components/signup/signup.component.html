@@ -1,0 +1,81 @@
+<body>
+  <div class="main-container">
+    <div class="form-control">
+      <h1 class="title">Registration</h1>
+      <form [formGroup]="registrationform" (ngSubmit)="onSubmit()">
+        <div class="input-field">
+          <label for="username" class="label">Username<span>*</span></label>
+          <input id="username" formControlName="username" type="text" class="input" placeholder="Username">
+          <div *ngIf="registrationform.get('username').touched && registrationform.get('username').errors">
+            <small id="error" *ngIf="registrationform.get('username').errors.required"><span>*</span>Username is required</small>
+          </div>
+        </div>
+ 
+        <div class="input-field">
+          <label for="password" class="label">Password<span>*</span></label>
+          <input id="password" formControlName="password" type="password" class="input" placeholder="Password">
+          <div *ngIf="registrationform.get('password').touched && registrationform.get('password').errors">
+            <small id="error" *ngIf="registrationform.get('password').errors.required"><span>*</span>Password is required</small>
+            <small id="error" *ngIf="registrationform.get('password').errors.minlength"><span>*</span>Password must be at least 6 characters long</small><br>
+            <small id="error" *ngIf="registrationform.get('password').errors.pattern"><span>*</span>Password must include at least one uppercase letter, one lowercase letter, one digit, and one special character.</small>
+          </div>
+        </div>
+ 
+ 
+        <div class="input-field">
+          <label for="confirmPassword" class="label">Confirm Password<span>*</span></label>
+          <input id="confirmPassword" formControlName="confirmPassword" type="password" class="input" placeholder="Confirm Password">
+          <div *ngIf="registrationform.get('confirmPassword').touched && registrationform.get('confirmPassword').errors">
+            <small id="error" *ngIf="registrationform.get('confirmPassword').errors.required"><span>*</span>Confirm Password is required</small>
+            <small id="error" *ngIf="registrationform.get('confirmPassword').errors.match"><span>*</span>Passwords do not match</small>
+          </div>
+        </div>
+ 
+        <div class="input-field">
+          <label for="email" class="label">Email<span>*</span></label>
+          <input id="email" formControlName="email" type="email" class="input" placeholder="Email">
+          <div *ngIf="registrationform.get('email').touched && registrationform.get('email').errors">
+            <small id="error" *ngIf="registrationform.get('email').errors.required"><span>*</span>Email is required</small>
+            <small id="error" *ngIf="registrationform.get('email').errors.email"><span>*</span>Invalid email format</small>
+          </div>
+        </div>
+ 
+        <div class="input-field">
+          <label for="mobileNumber" class="label">Mobile Number<span>*</span></label>
+          <input id="mobileNumber" formControlName="mobileNumber" type="text" class="input" placeholder="Mobile Number">
+          <div *ngIf="registrationform.get('mobileNumber').touched && registrationform.get('mobileNumber').errors">
+            <small id="error" *ngIf="registrationform.get('mobileNumber').errors.required"><span>*</span>Mobile number is required</small>
+            <small id="error" *ngIf="registrationform.get('mobileNumber').errors.pattern"><span>*</span>Invalid mobile number</small>
+          </div>
+        </div>
+ 
+        <div class="input-field">
+          <label for="userRole" class="label">Role<span>*</span></label>
+          <select id="userRole" formControlName="userRole" class="input">
+            <option value="" selected>Select Role</option>
+            <option value="ADMIN">ADMIN</option>
+            <option value="USER">USER</option>
+          </select>
+          <div *ngIf="registrationform.get('userRole').touched && registrationform.get('userRole').errors" class="error-message">
+            <small id="error">Role is required.</small>
+          </div>
+        </div>
+ 
+        <div class="input-field">
+          <button type="submit" class="submit-btn" [disabled]="registrationform.invalid">Register</button>
+        </div>
+        <small>Already have an account? <a routerLink="/login">Login</a></small>
+      </form>
+ 
+      <!-- Modal Popup for Successful Registration -->
+      <div *ngIf="registrationSuccess" class="modal">
+        <div class="modal-content">
+          <p>Registration Successful!</p>
+          <button (click)="redirectToLogin()" class="submit-btn">Go to Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</body>
+ 

@@ -1,0 +1,19 @@
+<nav>
+  <img id="logo" src="../../../assets/logo.png" alt="">
+  <h2>Book Heaven</h2>
+  <ul class="nav-links">
+    <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li class="dropdown">
+      <span class="dropdown-label">Books</span>
+      <ul class="dropdown-content">
+        <li><a routerLink="/adminbook">Add Book</a></li>
+        <li><a routerLink="/adminviewbook">View Books</a></li>
+      </ul>
+    </li>
+    <li><a routerLink="/adminviewappliedrequest" routerLinkActive="active">Book Rentals</a></li>
+    <li><a routerLink="/adminviewfeedback" routerLinkActive="active">Feedback</a></li>
+  </ul>
+  <div class="nav-buttons">
+    <button (click)="logout()">Log Out</button>
+  </div>
+</nav>

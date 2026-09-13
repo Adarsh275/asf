@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Add Feedback✍️</h1>
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="feedback">Feedback<span class="text-danger">*</span></label><br>
+      <textarea
+        class="form-control-line"
+        id="feedback"
+        formControlName="feedbackText"
+        rows="4"></textarea>
+      <div *ngIf="feedbackForm.get('feedbackText').invalid && feedbackForm.get('feedbackText').touched" class="text-danger">
+        *Feedback is required.
+      </div>
+    </div>
+    <div class="submit-button-container">
+      <button type="submit" class="btn btn-primary" [disabled]="feedbackForm.invalid">
+        <div class="span-mother">
+          <span>Submit</span>
+        </div>
+        <div class="span-mother2">
+          <span>Submit</span>
+        </div>
+      </button>
+    </div>
+  </form>
+</div>
+ 
+<div *ngIf="submitted" class="popup-overlay">
+  <div class="popup-content">
+    <p>Successfully added!</p>
+    <button class="btn btn-secondary" (click)="closePopup()">OK</button>
+  </div>
+</div>

@@ -1,0 +1,125 @@
+.view-container {
+  padding: 20px;
+}
+
+.view-container h2{
+  text-align: center;
+  padding: 20px;
+}
+
+.Search-filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.search-book, .filter-book {
+  display: flex;
+  align-items: center;
+}
+
+.search-book h4, .filter-book h4 {
+  margin-right: 10px;
+}
+
+.table-wrapper {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate; /* Important for rounded corners */
+  border-spacing: 0; /* Important for rounded corners */
+  border: 1px solid #ddd;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: #4c6faf;
+  color: white;
+}
+
+.no-data {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.image-container img {
+  max-height: 50vh;
+  max-width: 100%;
+  height: auto;
+  padding: 30px;
+}
+
+.close-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 2px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 12px; /* Rounded corners for buttons */
+}
+
+button:first-child {
+  background-color: rgba(0, 128, 0, 0.833); /* Edit button color */
+}
+
+button:nth-child(2) {
+  background-color: rgba(255, 0, 0, 0.833); /* Delete button color */
+}
+
+button:nth-child(3) {
+  background-color: rgba(0, 0, 255, 0.833); /* Show Cover Image button color */
+}
+
+button:nth-child(4) {
+  background-color: rgba(215, 215, 19, 0.833); /* Make Unavailable button color */
+  color: white;
+}
+
+table {
+  border-radius: 12px; /* Rounded corners for table */
+  overflow: hidden;
+}
+
+.search-book input, .filter-book select {
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+  padding: 5px;
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+.search-book input:focus, .filter-book select:focus {
+  border-bottom: 2px solid #000;
+}

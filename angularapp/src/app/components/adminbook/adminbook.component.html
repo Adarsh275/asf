@@ -1,0 +1,66 @@
+<div class="container">
+
+    <h2>{{ isEditing ? 'Edit Book' : 'Create New Book' }}</h2>
+
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+        <div class="form-control">
+            <label for="title">Book Title<span>*</span></label>
+            <input id="title" type="text" formControlName="title" />
+            <div *ngIf="bookForm.get('title')?.touched && bookForm.get('title')?.invalid">
+                <span>*Book Title is required.</span>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="author">Author<span>*</span></label>
+            <input id="author" type="text" formControlName="author" />
+            <div *ngIf="bookForm.get('author')?.touched && bookForm.get('author')?.invalid">
+                <span>*Author is required.</span>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="genre">Genre<span>*</span></label>
+            <input id="genre" type="text" formControlName="genre" />
+            <div *ngIf="bookForm.get('genre')?.touched && bookForm.get('genre')?.invalid">
+                <span>*Genre is required.</span>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="description">Description<span>*</span></label>
+            <textarea id="description" rows="4" formControlName="description"></textarea>
+            <div *ngIf="bookForm.get('description')?.touched && bookForm.get('description')?.invalid">
+                <span>*Description is required.</span>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="rentalFee">Rental Fee<span>*</span></label>
+            <input id="rentalFee" type="number" formControlName="rentalFee" />
+            <div *ngIf="bookForm.get('rentalFee')?.touched && bookForm.get('rentalFee')?.invalid">
+                <span>*Rental is required.</span>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="coverImage">Cover Image<span>*</span></label>
+            <input id="coverImage" type="file" (change)="onFileChange($event)" />
+            <div *ngIf="bookForm.get('coverImage')?.touched && bookForm.get('coverImage')?.invalid">
+                <span>*All the fields are required.</span>
+                <span>*Cover Image is required.</span>
+            </div>
+        </div>
+
+        <!-- Error Message  -->
+        <!-- <div class="all-fields-req" *ngIf="formSubmitted && bookForm.invalid">
+            <span>*All the fields are required.</span>
+        </div> -->
+
+        <div class="action-btn">
+            <button type="submit">{{ isEditing ? 'Update Book' : 'Add Book' }}</button>
+            <button type="button" *ngIf="isEditing" (click)="onBack()">Back</button>
+        </div>
+    </form>
+</div>
+
+<!-- Success Message-->
+<div *ngIf="successMessage" class="success-popup">
+    <p>{{ successMessage }}</p>
+    <button class="success-btn" (click)="onConfirmSuccess()">OK</button>
+</div>

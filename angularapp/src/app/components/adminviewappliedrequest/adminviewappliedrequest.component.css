@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.admin-request-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    color: #003366; /* Navy Blue */
+    text-align: center;
+
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1 1 auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 50px;
+    max-width: 400px;
+    margin-bottom: 5px;
+}
+
+.search-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.filter-status label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #003366; /* Navy Blue */
+}
+
+select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 120px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    background-color: #f9741688; /* Beige */
+}
+
+table th {
+    background-color: #003366; /* Navy Blue */
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9741688; /* Beige */
+}
+
+table tr:hover {
+    background-color: #ddd; /* Light Beige */
+}
+
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #003366; /* Navy Blue */
+    color: white;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #001f4d; /* Darker Navy Blue */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+
+    select {
+        width: 100%;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+/* The Modal (background) */
+.modal {
+    display: block; /* Show the modal by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Disable scroll */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50%; /* Can be adjusted */
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin: 40px auto;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+

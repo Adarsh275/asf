@@ -1,0 +1,47 @@
+<body>
+  <div *ngIf="isLoading">
+    <div class="spinner-overlay">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  <div class="main-container" *ngIf="!isLoading">
+    <div class="left-container">
+      <h2>Book Heaven</h2>
+    </div>
+  
+    <div class="right-container">
+  
+      <h2>Login</h2>
+  
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="container">
+          <div class="user-email">
+            <label for="email" class="form-label">Email:</label>
+            <input id="email" formControlName="email" type="email" placeholder="Enter Email" class="form-input">
+            <div *ngIf="loginForm.get('email').touched && loginForm.get('email').errors" class="error-message">
+              <div *ngIf="loginForm.get('email').errors.required" class="error-text">Email is required.</div>
+              <div *ngIf="loginForm.get('email').errors.email" class="error-text">Invalid email format.</div>
+            </div>
+          </div>
+  
+          <div class="user-password">
+            <label for="password" class="form-label">Password:</label>
+            <input id="password" formControlName="password" type="password" placeholder="Enter Password"
+              class="form-input">
+            <div *ngIf="loginForm.get('password').touched && loginForm.get('password').errors" class="error-message">
+              <div *ngIf="loginForm.get('password').errors.required" class="error-text">Password is required.</div>
+              <div *ngIf="loginForm.get('password').errors.minlength" class="error-text">Password must be at least 6
+                characters long.</div>
+            </div>
+          </div>
+  
+          <div class="btn">
+            <button type="submit" [disabled]="loginForm.invalid" class="form-button">Login</button>
+            <small>Don't have an account? <a routerLink="/signup">Sign Up</a></small>
+          </div>
+        </div>
+      </form>
+  
+    </div>
+  </div>
+</body>

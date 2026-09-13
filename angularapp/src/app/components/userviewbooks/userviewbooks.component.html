@@ -1,0 +1,54 @@
+<div class="view-container">
+    <h2>Available Books</h2>
+    <hr />
+    <div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search by Title, Author, or Genre:" [(ngModel)]="searchBooks" />
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Rental Fee</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of books | universalSearch:searchBooks ; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{book.title}}</td>
+                        <td>{{book.author}}</td>
+                        <td>{{book.genre}}</td>
+                        <td>{{book.rentalFee | currency:'INR':'symbol-narrow':'1.2-2'}}</td>
+                        <td>{{book.description}}</td>
+                        <td>{{book.isAvailable ? 'Available' : 'Unavailable'}}</td>
+                        <td>
+                            <div class="action-btn">
+                                <button (click)="rentBook(book.bookId)" id="rentBook"
+                                    [disabled]="!book.isAvailable">{{book.isAvailable ? 'Rent' : 'Rented' }}</button>
+                                <button (click)="showCoverImage(book.coverImage)" id="showCoverImage">Show Cover Image</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div *ngIf="books.length == 0" class="no-data">
+                <p>Oops! No Record found</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for cover Image-->
+    <div *ngIf="showImageModel" class="image-container">
+        <img [src]="selectedImage" alt="no bookImg found">
+        <button class="close-button" (click)="closeImageModel()">X</button>
+    </div>
+</div>

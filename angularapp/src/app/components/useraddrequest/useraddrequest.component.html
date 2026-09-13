@@ -1,0 +1,36 @@
+<div class="add-request-container">
+    <form [formGroup]="requestForm" (ngSubmit)="addBookRentalRequest()">
+        <button id="back-button" (click)="backButton()">Back</button>
+        <h2>Book Rental Request Form</h2>
+        <div>
+            <div>                
+                <label for="returnDate">Return Date:</label>&nbsp;
+                <input type="date" placeholder="dd-mm-yyyy" formControlName="returnDate" [attr.min]="today">
+            </div>
+            <div *ngIf="requestForm.controls.returnDate.invalid && (requestForm.controls.returnDate.dirty || requestForm.controls.returnDate.touched)">
+                <small id="error" class="error" *ngIf="requestForm.controls.returnDate.errors?.pastDate">Return date cannot be in the past.</small>
+                <small id="error" class="error" *ngIf="requestForm.controls.returnDate.errors?.required">Return date is required.</small>
+            </div>                
+            <div>
+                <label for="comments">Comments:</label>&nbsp;<br>
+                <textarea name="comments" id="comments" cols="50" rows="10" formControlName="comments"></textarea>
+            </div>
+            <div *ngIf="requestForm.controls.comments.invalid && (requestForm.controls.comments.dirty || requestForm.controls.comments.touched)">
+                <small id="error" class="error" *ngIf="requestForm.controls.comments.errors?.required">Comment is required</small>
+            </div>                
+        </div>
+        <label for="QR">PAY HERE:</label>
+        <div class="QR">
+            <img id="qr" src="../../../assets/sample-qr-code-vector-711478.avif" alt="QR Code">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+ 
+<!-- Modal -->
+<div id="successModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <p>Your request has been successfully submitted!</p>
+    </div>
+</div>

@@ -1,0 +1,162 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120vh;
+  position: relative;
+  background-image: url("../../../assets/Bookswall_generated.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.main-container {
+  display: flex;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  color: #003366;
+}
+
+#error {
+  color: red;
+}
+
+.form-control {
+  padding: 20px;
+  width: 100%;
+}
+
+.input-field {
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #003366;
+}
+
+.submit-btn {
+  background-color: #003366; /* Navy Blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #001f4d; /* Darker Navy Blue */
+}
+
+small {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+small a {
+  color: #003366; /* Navy Blue */
+  text-decoration: none;
+}
+
+small a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  margin-top: 8px;
+  color: #dc3545; /* Red */
+  font-size: 14px;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal-content p {
+  margin: 0 0 20px 0;
+}
+
+.modal-content .submit-btn {
+  background-color: #003366; /* Navy Blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content .submit-btn:hover {
+  background-color: #001f4d; /* Darker Navy Blue */
+}
+
+/* Spinner styles */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #f97316; /* Orange color */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

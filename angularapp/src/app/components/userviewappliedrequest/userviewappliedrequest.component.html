@@ -1,0 +1,57 @@
+<div class="admin-request-container">
+    <h1>Applied Book Rental Requests</h1>
+    <hr>
+    <div class="filter-container">
+      <input type="text" id="searchInput" placeholder="Search by Book Title..." [(ngModel)]="searchTitle"/>
+    </div>
+    <div class="request-list">
+      <table>
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Book Title</th>
+            <th>Request Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of bookRentals | searchByTitleRequest: searchTitle; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{request.book.title}}</td>
+            <td>{{request.requestDate | date: 'dd-MM-yyyy'}}</td>
+            <td>{{request.status}}</td>
+            <td>
+              <button (click)="toggleModal(request)">Show More</button>&nbsp;
+              <button (click)="openConfirmModal(request.rentalId)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="myModal" class="modal" *ngIf="displayModal">
+      <div class="modal-content">
+          <span class="close" (click)="closeModal()">&times;</span>
+          <h3>Request Details</h3>
+          <p><strong>Book Title: </strong>{{selectedRequest.book.title}}</p>
+          <p><strong>Author: </strong>{{selectedRequest.book.author}}</p>
+          <p><strong>Genre: </strong>{{selectedRequest.book.genre}}</p>
+          <p><strong>Rental Fee: </strong>{{selectedRequest.book.rentalFee}}</p>
+          <p><strong>Description: </strong>{{selectedRequest.book.description}}</p>
+          <p><strong>Status: </strong>{{selectedRequest.status}}</p>
+          <p><strong>Request Date: </strong>{{selectedRequest.requestDate | date:'dd-MM-yyyy'}}</p>
+          <p><strong>Return Date: </strong>{{selectedRequest.returnDate | date:'dd-MM-yyyy'}}</p>
+          <p><strong>Comments: </strong>{{selectedRequest.comments}}</p>
+      </div>
+    </div>
+    <div id="confirmModal" class="modal" *ngIf="displayConfirmModal">
+      <div class="modal-content">
+        <span class="close" (click)="closeConfirmModal()">&times;</span>
+        <h3>Confirm Delete</h3>
+        <p>Are you sure you want to delete this request?</p>
+        <button (click)="confirmDelete()">Yes</button>&nbsp;
+        <button (click)="closeConfirmModal()">No</button>
+      </div>
+    </div>
+  </div>
+  

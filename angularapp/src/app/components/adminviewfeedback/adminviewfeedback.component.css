@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center; /* Center the text */
+  background-image: url('/assets/feedback details.jpg'); /* Add your image path here */
+  background-size: cover; /* Cover the entire container */
+  background-repeat: no-repeat; /* Prevent repeating the image */
+  background-position: center; /* Center the background image */
+}
+ 
+h2 {
+  margin-bottom: 20px;
+  color: black;
+}
+ 
+.table {
+  width: 100%;
+  max-width: 1000px;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+}
+ 
+.table th, .table td {
+  background-color: rgb(24, 95, 183)6, 6, 131;
+  border: 1px solid rgb(31, 32, 34);
+  padding: 10px;
+  text-align: center; /* Center align the table content */
+}
+ 
+.table th {
+  background-color: #0d4894;
+  color: #f9f9f9;
+  font-weight: bold;
+}
+ 
+.table td {
+  background-color: #ffffff;
+}
+ 
+.table tbody tr:nth-child(odd) td {
+  background-color: #f9f9f9;
+}
+ 
+.btn-info {
+  font-weight: bold;
+  color: white;
+  border-radius: 8%;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: #186ede;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Center the button */
+}
+ 
+.btn-info:hover {
+  background-color: #1b529a;
+}
+ 
+/* Popup overlay styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+ 
+/* Popup content styles */
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center the popup content */
+}
+ 
+button.btn-secondary {
+  background-color: red;
+  font-weight: bold;
+  color: white;
+  border-radius: 2rem;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border: none;
+  margin: 5px auto; /* Center the button */
+}
+ 
+button.btn-secondary:hover {
+  background-color: darkred;
+}
+/* Set a specific width for the Posted Date column */
+.table .date-column {
+width: 150px; /* Adjust the width as needed */
+}

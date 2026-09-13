@@ -1,0 +1,60 @@
+<div class="admin-request-container">
+    <h1>Book Rental Requests for Approval</h1>
+    <hr>
+    <div class="search-filter">
+        <input type="text" class="searchInput" placeholder="Search by Book Title..." [(ngModel)]="searchTitle">
+        <div class="filter-status">
+            <label for="filter-status"><strong>Filter by Status:</strong></label>
+            <select name="filter-status" id="filterDropdown" [(ngModel)]="statusFilter">
+                <option value="All">All</option>
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+        </div>
+    </div>
+    <div class="request-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Username</th>
+                    <th>Book Title</th>
+                    <th>Author</th>
+                    <th>Submission Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="requestTableBody">
+                <tr *ngFor="let request of bookRentalRequests | searchByTitleRequest:searchTitle | statusFilter:statusFilter; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{request.user.username}}</td>
+                    <td>{{request.book.title}}</td>
+                    <td>{{request.book.author}}</td>
+                    <td>{{request.returnDate | date:'dd-MM-yyyy'}}</td>
+                    <td>{{request.status}}</td>
+                    <td>   
+                        <button (click)="toggleModal(request)">Show More</button>&nbsp;                     
+                        <button *ngIf="request.status === 'Pending' || request.status === 'Rejected'" (click)="approveRequest(request.rentalId, request)">Approve</button>&nbsp;                     
+                        <button *ngIf="request.status === 'Pending' || request.status === 'Approved'" (click)="rejectRequest(request.rentalId, request)">Reject</button>                     
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="myModal" class="modal" *ngIf="displayModal">
+        <div class="modal-content">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <h3>Request Details</h3>
+            <p><strong>Username: </strong>{{selectedRequest.user.username}}</p>
+            <p><strong>Book Title: </strong>{{selectedRequest.book.title}}</p>
+            <p><strong>Author: </strong>{{selectedRequest.book.author}}</p>
+            <p><strong>Genre: </strong>{{selectedRequest.book.genre}}</p>
+            <p><strong>Request Date: </strong>{{selectedRequest.requestDate | date:'dd-MM-yyyy'}}</p>
+            <p><strong>Return Date: </strong>{{selectedRequest.returnDate | date:'dd-MM-yyyy'}}</p>
+            <p><strong>Status: </strong>{{selectedRequest.status}}</p>
+            <p><strong>Comments: </strong>{{selectedRequest.comments}}</p>
+        </div>
+    </div>
+</div>

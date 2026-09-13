@@ -1,0 +1,63 @@
+<div class="view-container">
+    <h2>Books</h2>
+    <hr />
+
+    <div class="Search-filter-container">
+        <div class="search-book">
+            <h4>Search by:</h4>
+            <input type="text" placeholder="Search by Title" [(ngModel)]="searchByTitle" />
+        </div>
+        <div class="filter-book">
+            <h4>Filter by:</h4>
+            <select [(ngModel)]="filterByGenre">
+                <option value="">All</option>
+                <option *ngFor="let genre of genres" [value]="genre">{{genre}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Rental Fee</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="let book of books | searchByTitle:searchByTitle | filterByGenre:filterByGenre; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.genre}}</td>
+                    <td>{{book.rentalFee | currency:'INR':'symbol-narrow':'1.2-2'}}</td>
+                    <td>{{book.description}}</td>
+                    <td>{{book.isAvailable ? 'Available' : 'Unavailable'}}</td>
+                    <td>
+                        <button (click)="editBook(book)">Edit</button>
+                        <button (click)="deleteBook(book)">Delete</button>
+                        <button (click)="showCoverImage(book.coverImage)">Show Cover Image</button>
+                        <button (click)="toggleAvailability(book)">{{ book.isAvailable ? 'Make Unavailable' : 'Make
+                            Available'}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="books.length == 0" class="no-data">
+            <p>Oops! No Record found</p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for cover Image-->
+<div *ngIf="showImageModel" class="image-container">
+    <img [src]="selectedImage" alt="no bookImg found">
+    <button class="close-button" (click)="closeImageModel()">X</button>
+</div>
