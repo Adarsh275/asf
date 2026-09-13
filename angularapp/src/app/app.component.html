@@ -1,0 +1,16 @@
+<body>
+    <div *ngIf="!isLoggedIn">
+        <nav>
+            <h2>Book Heaven</h2>
+            <img id="logo" src="../../../assets/logo.png" alt="">
+            <ul class="nav-links">
+                <li><a routerLink="/home">Home</a></li>
+                <li><a routerLink="/login">Login</a></li>
+                <li><a routerLink="/signup">Register</a></li>
+            </ul>
+        </nav>
+    </div>
+    <app-adminnav *ngIf="isLoggedIn && isAdmin()"></app-adminnav>
+    <app-usernav *ngIf="isLoggedIn && isUser()"></app-usernav>
+    <router-outlet></router-outlet>
+</body>
